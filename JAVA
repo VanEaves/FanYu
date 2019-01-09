@@ -1,0 +1,303 @@
+package BLL;
+import java.util.Scanner;
+
+public class bookshoopmenu {
+
+	/**
+	 * @param args书店登陆管理系统
+	 */
+	public static void shoopmenu() {
+		System.out.println("\t书店管理销售系统");
+		System.out.println("******************************************");
+		System.out.println("\t1,登录系统");
+		System.out.println("\t2,退出");
+		System.out.println("******************************************");
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("请输入数字");
+		String choice=scanner.next();
+		while(true){
+			if (choice.equals("1")) {
+				LoginManage.LonginMan();
+				break;
+			}else if (choice.equals("2")) {
+				System.out.println("谢谢您的使用");
+				break;
+			}else {
+				System.out.println("您输入的有误");
+				break;
+			}
+		}
+	}
+
+}
+
+package BLL;
+
+import java.util.Scanner;
+
+import exer.gaga;
+
+public class chakanshumu {
+	public static void shumu(){
+		Scanner scanner=new Scanner(System.in);
+		Double[] shujia=gaga.initUserPriceArray();
+		String[] shumu=gaga.initUserBookArray();
+		System.out.println("书店管理销售系统》书籍管理》书籍列表");
+		
+		for (int i = 0; i < shumu.length; i++) {
+			if (shumu[i]==null) {
+				break;
+			}
+			System.out.println("书名："+shumu[i]+"\t\t"+"价格："+shujia[i]);
+		}
+		System.out.println("按'b'返回主菜单");
+		String num=scanner.next();
+		while (true) {
+			if (num.equals("b")) {
+				shujiguanli.shujiguan();
+				break;
+			}else {
+				System.out.println("您输入的有误");
+				break;
+			}
+		}
+	}
+
+}
+package BLL;
+
+import java.util.Scanner;
+
+import exer.gaga;
+
+public class huiyuanguanli{
+	public static void huiyuan(){
+	Scanner scanner=new Scanner(System.in);
+	
+	int[] name=gaga.initUserIdArray();
+	int[] age=gaga.initUserAgeArray();
+	int[] jinfen=gaga.initUserJifenArray();
+	System.out.println("书店管理销售系统》会员信息管理》显示所有会员");
+	System.out.println("\t会员号\t\t年龄\t积分");
+	for (int i = 0; i < jinfen.length; i++) {
+		if (name[i]==0) {
+			break;
+		}
+	System.out.println("\t"+name[i]+"\t\t"+age[i]+"\t"+jinfen[i]);
+	}
+	System.out.println("请按'u'返回主菜单");
+	String num=scanner.next();
+	while (true) {
+		if (num.equals("u")) {
+			vip.vipguanli();
+			break;
+		}else {
+			System.out.println("你输入的有误");
+			break;
+		}
+	}
+	}
+}
+package BLL;
+
+import java.util.Scanner;
+
+public class LoginManage {
+	public static void LonginMan(){
+		Scanner scanner=new Scanner(System.in);
+		for (int i = 3; i >0; i--) {
+			System.out.println("请输入账号");
+			String userId=scanner.next();
+			System.out.println("请输入密码");
+			String userpwd=scanner.next();
+			if (userId.equals("admin")&&userpwd.equals("111222")) {				
+				exer();
+				break;
+			}else {
+				if (i==1) {
+					System.out.println("你输入的账号密码有误，将自动退出");
+					break;
+				}
+				System.out.println("您输入的密码或账号有误，还有"+(i-1)+"次机会");
+			}
+	}
+
+}
+	public static void exer(){
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("\t书店管理系统");
+		System.out.println("***********************************************");
+		System.out.println("\t1.会员管理");
+		System.out.println("\t2.书籍管理");
+		System.out.println("\t3.购物结算");
+		System.out.println("\t4.积分兑换奖品");
+		System.out.println("\t5.注销");
+		System.out.println("***********************************************");
+		System.out.println("请选择输入的数字");
+		int num=scanner.nextInt();
+		if (num==1) {
+			vip.vipguanli();
+		}else if (num==2) {
+			shujiguanli.shujiguan();
+		}
+}
+}
+
+package BLL;
+
+import java.util.Scanner;
+
+public class shujiguanli {
+public static void shujiguan(){
+	System.out.println("书店管理销售系统》书籍管理");
+	System.out.println("*********************************************");
+	System.out.println("\t1.查看书目");
+	System.out.println("\t2.添加书籍");
+	System.out.println("\t3.删除书籍");
+	System.out.println("\tb.返回主菜单");
+	System.out.println("*********************************************");
+	System.out.println("选择功能");
+	Scanner scanner=new Scanner(System.in);
+	String num=scanner.next();
+	while (true) {
+		if (num.equals("1")) {
+			chakanshumu.shumu();
+			break;
+		}else if (num.equals("2")) {
+			
+			break;
+		}else if (num.equals("3")) {
+			
+			break;
+		}else if (num.equals("m")) {
+			
+			break;
+		}else {
+			System.out.println("你输入的有误");
+			break;
+		}
+	}
+}
+}
+package BLL;
+
+import java.util.Scanner;
+
+import exer.gaga;
+
+public class tianjia {
+	public static void tianjiashuji(){
+		String[] userBook=gaga.initUserBookArray();
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("请输入添加的书籍名");
+		String bookname=scanner.next();
+		for (int i = 0; i < userBook.length; i++) {
+			
+		}
+	}
+}
+
+package BLL;
+
+import java.util.Scanner;
+
+import exer.gaga;
+
+public class tianjiahuiyuan {
+public static void tianjia(){
+	int[]userId=gaga.initUserIdArray();
+	int[]userAge=gaga.initUserAgeArray();
+	int[]userJifen=gaga.initUserJifenArray();
+	Scanner scanner=new Scanner(System.in);
+	System.out.println("请输入用户编号");
+	int ID=scanner.nextInt();
+	System.out.println("请输入用户年龄");
+	int age=scanner.nextInt();
+	System.out.println("请输入用户积分");
+	int jifen=scanner.nextInt();
+	for (int i = 0; i < userId.length; i++) {
+		if (userId[i]==0&&userAge[i]==0) {
+			userId[i]=ID;
+			userAge[i]=age;
+			break;
+		}
+		System.out.println("请按'u'返回主菜单");
+		String num=scanner.next();
+		while (true) {
+			if (num.equals("u")) {
+				vip.vipguanli();
+				break;
+			}else {
+				System.out.println("你输入的有误");
+				break;
+	}
+		}
+	}
+}
+}
+package BLL;
+
+import java.util.Scanner;
+
+import BLL.huiyuanguanli;
+
+public class vip {
+	public static void vipguanli(){
+		System.out.println("书店管理销售系统》会员管理");
+		System.out.println("************************************************");
+		System.out.println("\t1.显示所有会员");
+		System.out.println("\t.2添加会员信息");
+		System.out.println("\t.3修改会员信息");
+		System.out.println("\t.m返回主菜单");
+		System.out.println("************************************************");
+		System.out.println("请选择功能");
+		Scanner scanner=new Scanner(System.in);
+		String shu=scanner.next();
+		while (true) {
+			if (shu.equals("1")) {
+				huiyuanguanli.huiyuan();
+				break;
+			}else if (shu.equals("2")) {
+				tianjiahuiyuan.tianjia();
+				break;
+			}else if (shu.equals("3")) {
+				xiugaihuiyuan.xiugai();
+				break;
+			}else if (shu.equals("m")) {
+				LoginManage.exer();
+				break;
+			}else {
+				System.out.println("你输入的有误");
+				break;
+			}
+		}
+	}
+
+}
+package BLL;
+
+import java.util.Scanner;
+
+import exer.gaga;
+
+public class xiugaihuiyuan {
+	public static void xiugai(){
+		int[]userId=gaga.initUserIdArray();
+		int[]userAge=gaga.initUserAgeArray();
+		int[]userJifen=gaga.initUserJifenArray();
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("请输入会员编号");
+		int Id=scanner.nextInt();
+		for (int i = 0; i < userId.length; i++) {
+			if (userId[i]==Id) {
+				System.out.println(Id+"号会员的年龄是 "+userAge[i]);
+				System.out.println("请输入会员的年龄");
+				userAge[i]=scanner.nextInt();
+				System.out.println("修改成功");
+				break;
+	}
+
+	}
+
+}
+}
